@@ -1,0 +1,7 @@
+Home,Order,Our Customers,About us,Contact Us,English,Terms,Close and Go Back
+
+
+
+
+Hem,Beställ,Våra Kunder,Om oss,Kontakta oss,Svenska,Villkor,Stäng och gå tillbaka
+
