@@ -10,6 +10,11 @@ await fastify.register(cors, {
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 });
 
+fastify.get('/', async (request, reply) => {
+  reply.send({ status: 'ok' });
+});
+
+
 fastify.get('/terms/:id', async (request, reply) => {
   const { id } = request.params;
   try {
@@ -28,5 +33,14 @@ fastify.get('/terms/:id', async (request, reply) => {
   }
 });
 
-await fastify.listen({ port: process.env.PORT || 5000, host: '0.0.0.0' });
+const PORT = process.env.PORT || 5000;
+
+app.listen({ port: PORT, host: '0.0.0.0' }, err => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log(`Server running on port ${PORT}`);
+});
+
 
