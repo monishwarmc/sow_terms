@@ -28,9 +28,5 @@ fastify.get('/terms/:id', async (request, reply) => {
   }
 });
 
-fastify.listen({ port: 5000 }, (err) => {
-  if (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-});
+await fastify.listen({ port: process.env.PORT || 5000, host: '0.0.0.0' });
+
