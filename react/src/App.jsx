@@ -47,6 +47,15 @@ export default function Home() {
   }, [lang]);
 
   return (
+    <>
+      {/* Fixed Background */}
+      <div className="fixed inset-0 -z-10">
+        <img
+          src="/sverige43.jpg"
+          alt="Background"
+          className="w-full h-[100vh] object-cover"
+        />
+      </div>
     <div className="p-6 w-screen mx-auto items-center justify-center flex flex-col">
       {/* Navbar */}
       <div className="flex justify-between items-center mb-8 w-[75%] relative">
@@ -140,6 +149,6 @@ export default function Home() {
           {navLabels[7]}
         </button>
       </div>
-    </div>
+    </div></>
   );
 }
