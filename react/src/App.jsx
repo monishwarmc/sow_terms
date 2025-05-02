@@ -47,8 +47,7 @@ export default function Home() {
   }, [lang]);
 
   return (
-    <div className="p-6 min-h-screen max-w-screen mx-auto items-center justify-center flex flex-col relative z-10">
-
+    <div className="p-6 w-screen mx-auto items-center justify-center flex flex-col">
       {/* Navbar */}
       <div className="flex justify-between items-center mb-8 w-[75%] relative">
         {/* Hamburger for mobile (replaces logo on small screens) */}
@@ -128,7 +127,7 @@ export default function Home() {
 
 
       {/* Terms Section */}
-      <div className="mb-4 flex flex-col items-center max-w-[95%] lg:max-w-[70%]">
+      <div className="mb-4 flex flex-col items-center max-w-[95%] lg:max-w-7/12">
         <h2 className="font-bold text-3xl text-center">{navLabels[6]}</h2>
 
         <button className="sm:px-20 px-10 font-bold mb-8 mt-4 py-4 text-lg bg-green-600 text-white rounded-full">
