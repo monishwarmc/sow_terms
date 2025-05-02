@@ -47,7 +47,7 @@ export default function Home() {
   }, [lang]);
 
   return (
-    <div className="p-6 w-screen mx-auto items-center justify-center flex flex-col">
+    <div className="p-6 max-w-screen mx-auto items-center justify-center flex flex-col">
       {/* Navbar */}
       <div className="flex justify-between items-center mb-8 w-[75%] relative">
         {/* Hamburger for mobile (replaces logo on small screens) */}
