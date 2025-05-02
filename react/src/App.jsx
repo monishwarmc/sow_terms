@@ -127,7 +127,7 @@ export default function Home() {
 
 
       {/* Terms Section */}
-      <div className="mb-4 flex flex-col items-center max-w-[95%] lg:max-w-7/12">
+      <div className="mb-4 flex flex-col items-center max-w-[95%] lg:max-w-[70%]">
         <h2 className="font-bold text-3xl text-center">{navLabels[6]}</h2>
 
         <button className="sm:px-20 px-10 font-bold mb-8 mt-4 py-4 text-lg bg-green-600 text-white rounded-full">
