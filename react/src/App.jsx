@@ -47,16 +47,6 @@ export default function Home() {
   }, [lang]);
 
   return (
-    <div className="relative z-0">
-      {/* Background layer */}
-      <div className="fixed inset-0 z-[-1]">
-        <img
-          src="/sverige43.jpg"
-          alt="Background"
-          className="w-full h-full object-cover"
-          style={{ willChange: 'transform' }}
-        />
-      </div>
     <div className="p-6 min-h-screen max-w-screen mx-auto items-center justify-center flex flex-col relative z-10">
 
       {/* Navbar */}
@@ -152,6 +142,5 @@ export default function Home() {
         </button>
       </div>
     </div>
-  </div>
   );
 }
