@@ -18,6 +18,19 @@ export default function Home() {
   const [termsText, setTermsText] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [animating, setAnimating] = useState(false);
+
+  const handleToggle = () => {
+    if (menuOpen) {
+      setAnimating(true);
+      setTimeout(() => {
+        setMenuOpen(false);
+        setAnimating(false);
+      }, 300);
+    } else {
+      setMenuOpen(true);
+    }
+  };
 
   useEffect(() => {
     const fetchTerms = async () => {
@@ -34,12 +47,12 @@ export default function Home() {
   }, [lang]);
 
   return (
-    <div className="p-6 max-w-9/12 mx-auto">
+    <div className="p-6 w-screen mx-auto items-center justify-center flex flex-col">
       {/* Navbar */}
-      <div className="flex justify-between items-center mb-8 relative">
+      <div className="flex justify-between items-center mb-8 w-[75%] relative">
         {/* Hamburger for mobile (replaces logo on small screens) */}
         <div className="lg:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
+          <button onClick={() => handleToggle()}>
             <Menu size={32} />
           </button>
         </div>
@@ -59,7 +72,7 @@ export default function Home() {
           </ul>
 
           {/* Language Dropdown */}
-          <div className="relative">
+          <div className="relative ">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center gap-2 px-4 py-2 rounded"
@@ -96,31 +109,34 @@ export default function Home() {
         </div>
 
         {/* Mobile menu dropdown (hamburger) */}
-        {menuOpen && (
-          <div className="absolute top-full left-0 w-2/4 lg:hidden bg-white z-20 shadow-md animate-slide-down transition-all duration-300">
-            <ul className="flex flex-col  gap-4 py-4 px-4 text-lg text-black">
-              {navLabels.slice(0, 5).map((label, idx) => (
+        {(menuOpen || animating) && (
+          <div
+            className={`absolute top-full left-0 w-2/4 lg:hidden bg-white z-20  ${
+              menuOpen ? "roll-down" : "roll-up"
+            }`}
+          >
+            <ul className="flex flex-col gap-4 py-4 px-4 text-lg text-black">
+              {["Home", "About", "Contact", "Blog", "Help"].map((label, idx) => (
                 <li key={idx}>{label}</li>
               ))}
             </ul>
           </div>
         )}
+
       </div>
 
 
       {/* Terms Section */}
-      <div className="mb-4 flex flex-col items-center">
+      <div className="mb-4 flex flex-col items-center max-w-[95%] lg:max-w-7/12">
         <h2 className="font-bold text-3xl text-center">{navLabels[6]}</h2>
 
-        <button className="sm:px-20 font-bold mb-8 mt-4 py-4 sm:text-lg text-sm bg-green-600 text-white rounded-full">
+        <button className="sm:px-20 px-10 font-bold mb-8 mt-4 py-4 text-lg bg-green-600 text-white rounded-full">
           {navLabels[7]}
         </button>
 
-        <div className="bg-white rounded-2xl mx-auto p-6 sm:p-10 text-gray-700 font-medium text-[16px] leading-relaxed lg:w-7/12 w-10/12 max-w-5xl shadow-md text-center">
-          <p className="whitespace-pre-wrap text-center">{termsText}</p>
-        </div>
+          <p className="bg-white text-sm text-gray-700 whitespace-pre-wrap text-center p-10 rounded-2xl ">{termsText}</p>
 
-        <button className="sm:px-20 font-bold mb-8 mt-4 py-4 sm:text-lg text-sm bg-green-600 text-white rounded-full">
+        <button className="sm:px-20 px-10 font-bold mb-8 mt-4 py-4 text-lg bg-green-600 text-white rounded-full">
           {navLabels[7]}
         </button>
       </div>
